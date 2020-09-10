@@ -49,6 +49,6 @@ else
 fi
 
 echo "NOW DO"
-echo "cd $DEST/grid_testscripts;source start.sh"
+echo "cd ~/code/github/threefoldfoundation/grid_testscripts;source start.sh"
 
 

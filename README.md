@@ -11,8 +11,13 @@ result
 - crystaltools & tfweb installed
 - basic requirements installed
 
+to go into the test tools do:
 
-## run letsencrypt to local webserver
+```bash
+cd ~/code/github/threefoldfoundation/grid_testscripts;source start.sh
+```
+
+## run webserver which has support for letsencrypt
 
 
 ```bash
@@ -22,6 +27,12 @@ web_run
 
 ```
 
-## do reverse proxy to 2 other destinations & get ssl 
+- will run as proxy to simple python webserver on 3001, the 3001 webserver is std http
 
-to be done
+
+
+## how to build the crystal tools & tfweb
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/threefoldfoundation/websites/master/tools/build.sh)"
+```
