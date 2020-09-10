@@ -48,6 +48,7 @@ else
     git clone "https://github.com/threefoldfoundation/grid_testscripts"    
 fi
 
-cd $DEST/grid_testscripts
+echo "NOW DO"
+echo "cd $DEST/grid_testscripts;source start.sh"
 
-source start.sh
+
