@@ -1,0 +1,31 @@
+if [[ ! "$INIT" == "1" ]]; then
+    echo "do: 'source /root/grid_testscripts/start.sh' before using this script"
+    exit 1
+fi
+
+if [[ -z "$DOMAIN" ]]; then
+    echo "do: 'do export DOMAIN=my.domain.com"
+    exit 1
+fi
+
+
+install_caddy
+
+killall python3 2>&1 > /dev/null
+killall caddy 2>&1 > /dev/null
+
+mkdir -p /tmp/webserver1/a
+cd /tmp/webserver1
+python3 -m http.server 3001 &
+mkdir -p /tmp/webserver2/b
+cd /tmp/webserver2
+python3 -m http.server 3002 &
+
+cp $BASE/templates/caddy_proxy /tmp/Caddyfile
+
+sed -i "s/^\$DOMAIN/${DOMAIN}/" /tmp/Caddyfile
+
+cd /tmp;caddy run 
+
+echo "webservers should be running"
+

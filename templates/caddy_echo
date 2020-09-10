@@ -1,0 +1,13 @@
+{
+	admin   off
+	http_port   3001
+	https_port  445
+    auto_https off
+    debug
+}
+respond "Hello, world!"
+
+# 0.0.0.0:3001 {
+# 	respond "Hello, world!"
+# }
+

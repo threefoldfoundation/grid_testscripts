@@ -1,0 +1,14 @@
+if [[ ! "$INIT" == "1" ]]; then
+    echo "do: 'source /root/grid_testscripts/start.sh' before using this script"
+    exit 1
+fi
+
+
+sync_ct
+
+if [ ! -z "$1" ]; then
+    # ssh -t -A root@$HOST "bash -c 'source /root/grid_testscripts/start.sh && $1 && echo OK'"
+    ssh -t -A root@$HOST "source /root/grid_testscripts/start.sh && $1 && echo OK"
+else
+    shell
+fi

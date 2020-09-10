@@ -1,0 +1,11 @@
+if [[ -z "$HOST" ]]; then
+    echo "do: 'export HOST=178.62.221.249' before using this script, ofcourse use your ipaddr of the host"
+    exit 1
+fi
+
+if [[ ! "$INIT" == "1" ]]; then
+    echo "do: 'source /root/grid_testscripts/start.sh' before using this script"
+    exit 1
+fi
+
+ssh -t -A root@$HOST 'bash -c "source /root/grid_testscripts/start.sh;bash"'

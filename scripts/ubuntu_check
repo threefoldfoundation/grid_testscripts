@@ -1,0 +1,16 @@
+if [[ ! "$INIT" == "1" ]]; then
+    echo "do: 'source /root/grid_testscripts/start.sh' before using this script"
+    exit 1
+fi
+
+
+if [[ "$OSTYPE" != "linux-gnu"* ]]; then
+    echo "OS is not supported. only ubuntu for now."
+    exit 1
+fi
+
+lsb_release -a 2>&1 | grep -q "Ubuntu"
+if [ ! $? == 0 ]; then
+    echo "OS is not supported. only ubuntu for now."
+    exit 1
+fi

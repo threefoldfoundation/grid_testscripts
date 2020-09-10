@@ -1,0 +1,8 @@
+if [[ ! "$INIT" == "1" ]]; then
+    echo "do: 'source /root/grid_testscripts/start.sh' before using this script"
+    exit 1
+fi
+
+ssh-keygen -F github.com || ssh-keyscan github.com >> ~/.ssh/known_hosts
+        
+

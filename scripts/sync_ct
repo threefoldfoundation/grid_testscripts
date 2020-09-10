@@ -1,0 +1,22 @@
+if [[ -z "$HOST" ]]; then
+    echo "do: 'export HOST=178.62.221.249' before using this script, ofcourse use your ipaddr of the host"
+    exit 1
+fi
+
+if [[ ! "$INIT" == "1" ]]; then
+    echo "do: 'source /root/grid_testscripts/start.sh' before using this script"
+    exit 1
+fi
+
+
+
+export SRC=~/code/github/threefoldfoundation/grid_testscripts/
+if [ ! -d "$SRC" ] ; then
+    echo "cannot find ~/code/github/threefoldfoundation/grid_testscripts/"
+    echo "make sure the test scripts are checked out"
+    echo "install them by using: ... TODO"
+    exit 1
+fi
+
+rsync -ravd $SRC root@$HOST:/root/grid_testscripts/
+
